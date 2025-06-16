@@ -20,16 +20,13 @@ public class PokemonServicio {
 	    public PokemonDTO buscarPorNombre(String nombre) {
 	        try {
 	            Pokemon p = restTemplate.getForObject(
-	                "https://pokeapi.co/api/v2/pokemon/{name}", Pokemon.class, nombre);
-	            
-	            // mapear a DTO
-	            
+	                "https://pokeapi.co/api/v2/pokemon/{name}", Pokemon.class, nombre);          
 	            PokemonDTO dto = new PokemonDTO();
 	            dto.setNombre(p.getNombre());
 	            dto.setImagen(p.getSprites().getFrontDefault());
 	            dto.setTipos(
 	            		 Optional.ofNullable(p.getTipos())
-	            	        .orElse(List.of()) // lista vacía si es null
+	            	        .orElse(List.of()) 
 	            	        .stream()
 	            	        .filter(slot -> slot.getTipo() != null && slot.getTipo().getNombre() != null)
 	            	        .map(slot -> slot.getTipo().getNombre())

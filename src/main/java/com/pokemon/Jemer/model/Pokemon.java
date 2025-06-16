@@ -13,7 +13,6 @@ public class Pokemon {
     @JsonProperty("types")
     private List<TipoSlot> tipos;
 
-    // Getter y Setter para nombre
     public String getNombre() {
         return nombre;
     }
@@ -22,7 +21,6 @@ public class Pokemon {
         this.nombre = nombre;
     }
 
-    // Getter y Setter para tipos
     public List<TipoSlot> getTipos() {
         return tipos;
     }
@@ -31,7 +29,6 @@ public class Pokemon {
         this.tipos = tipos;
     }
 
-    // Getter y Setter para sprites
     public Sprites getSprites() {
         return sprites;
     }
