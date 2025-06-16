@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
+
 
 public class Almacenamiento {
 	
@@ -26,8 +28,9 @@ public class Almacenamiento {
     
 	 public void guardar(String nombre) {
 	        nombres.add(nombre);
+	        String fechaHora = LocalDateTime.now().toString();
 	        try (FileWriter escritor = new FileWriter(archivo, true)) {
-	            escritor.write(nombre + "\n");
+	            escritor.write(nombre + " - " + fechaHora + "\n");
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
